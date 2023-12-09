@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "JavaIM for Windows (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "JavaIM for Windows (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
