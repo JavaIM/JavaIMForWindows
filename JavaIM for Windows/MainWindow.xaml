@@ -6,14 +6,13 @@
     xmlns:local="using:JavaIM_for_Windows"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="JavaIM for Windows"
     mc:Ignorable="d">
 
     <NavigationView  SelectionChanged="NavigationView_SelectionChanged" PaneDisplayMode="Left">
         <NavigationView.MenuItems>
-            <NavigationViewItem Icon="Play" Content="1" Tag="SamplePage1"/>
-            <NavigationViewItem Icon="Save" Content="2" Tag="SamplePage2"/>
-            <NavigationViewItem Icon="Refresh" Content="3" Tag="SamplePage3"/>
-            <NavigationViewItem Icon="Download" Content="4" Tag="SamplePage4"/>
+            <NavigationViewItem Icon="List" Content="Server" Tag="Server"/>
+            <NavigationViewItem Icon="Message" Content="Messages" Tag="Chat"/>
         </NavigationView.MenuItems>
         <Frame x:Name="contentFrame"/>
     </NavigationView>

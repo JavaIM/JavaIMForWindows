@@ -12,6 +12,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ApplicationSettings;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -28,6 +29,15 @@ namespace JavaIM_for_Windows
             this.InitializeComponent();
         }
 
-
+        private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            var selectedItem = (NavigationViewItem)args.SelectedItem;
+            if (args.IsSettingsSelected)
+            {
+                contentFrame.Navigate(typeof(Settings));
+            }
+            if ((string)selectedItem.Tag == "Chat") contentFrame.Navigate(typeof(Chat));
+            else if ((string)selectedItem.Tag == "Server") contentFrame.Navigate(typeof(Server));
+        }
     }
 }

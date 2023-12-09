@@ -10,12 +10,22 @@
     <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Never</AppxBundle>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="BlankPage1.xaml" />
-    <None Remove="BlankPage2.xaml" />
-    <None Remove="BlankPage3.xaml" />
-    <None Remove="BlankPage4.xaml" />
+    <Content Remove="Assets\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Chat.xaml" />
+    <None Remove="Server.xaml" />
+    <None Remove="Settings.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,22 +53,17 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-    <Page Update="BlankPage4.xaml">
+    <Page Update="Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="BlankPage3.xaml">
+    <Page Update="Server.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="BlankPage2.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="BlankPage1.xaml">
+    <Page Update="Chat.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
