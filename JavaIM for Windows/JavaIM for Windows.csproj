@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.18362.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>JavaIM_for_Windows</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -19,6 +19,7 @@
     <AppxBundle>Never</AppxBundle>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <ApplicationIcon>Assets\logo.ico</ApplicationIcon>
+    <SupportedOSPlatformVersion>10.0.18362.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\logo.png" />
@@ -40,6 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.UI.Xaml" Version="2.8.6" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.4.230913002" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
     <Manifest Include="$(ApplicationManifest)" />
