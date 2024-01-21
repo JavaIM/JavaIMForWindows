@@ -20,6 +20,7 @@
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <ApplicationIcon>Assets\logo.ico</ApplicationIcon>
     <SupportedOSPlatformVersion>10.0.18362.0</SupportedOSPlatformVersion>
+	<WindowsPackageType>None</WindowsPackageType>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\logo.png" />
