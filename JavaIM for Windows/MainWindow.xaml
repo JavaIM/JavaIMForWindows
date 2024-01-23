@@ -9,9 +9,9 @@
     Title="JavaIM for Windows"
     mc:Ignorable="d">
 
-    <NavigationView  SelectionChanged="NavigationView_SelectionChanged" PaneDisplayMode="Left">
+    <NavigationView  SelectionChanged="NavigationView_SelectionChanged" PaneDisplayMode="Auto" PaneTitle="JavaIM" >
         <NavigationView.MenuItems>
-            <NavigationViewItem Icon="List" Content="Server" Tag="Server"/>
+            <NavigationViewItem Icon="Library" Content="Server" Tag="Server"/>
             <NavigationViewItem Icon="Message" Content="Messages" Tag="Chat"/>
         </NavigationView.MenuItems>
         <Frame x:Name="contentFrame"/>
