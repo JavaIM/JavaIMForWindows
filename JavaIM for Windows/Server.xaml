@@ -25,13 +25,14 @@
                 </DataTemplate>
             </ContentDialog.TitleTemplate>
             <StackPanel>
-                <TextBox Header="Server Name:" PlaceholderText="JavaIM Server" />
-                <TextBox Header="Server IP:" PlaceholderText="0.0.0.0" />
-                <NumberBox x:Name="NumberBoxSpinButtonPlacementExample"
+                <TextBox x:Name="Name" Header="Server Name:" PlaceholderText="JavaIM Server" TextChanged="inputBox_TextChanged" />
+                <TextBox x:Name="IP" Header="Server IP:" PlaceholderText="0.0.0.0" TextChanged="inputBox_TextChanged" />
+                <NumberBox x:Name="Port"
                     Header="Port:"
                     PlaceholderText="0~65535"
                     SpinButtonPlacementMode="Compact"
                     SmallChange="1"/>
+
             </StackPanel>
         </ContentDialog>
     </Grid>

@@ -23,11 +23,12 @@ namespace JavaIM_for_Windows
     /// </summary>
     public sealed partial class Server : Page
     {
-        Button AddServerButton = new Button();
+        Button Button = new Button();
+        // TextBox Text = new TextBox();
         public Server()
         {
-            AddServerButton.Content = "Add Server";
-            AddServerButton.Click += AddServerButton_Click;
+            Button.Content = "Add Server";
+            Button.Click += AddServerButton_Click;
             this.InitializeComponent();
         }
 
@@ -38,13 +39,13 @@ namespace JavaIM_for_Windows
             if (result == ContentDialogResult.Primary)
             {
                 // Terms of use were accepted.
-                AddServerButton.Content = "Accept";
+                Button.Content = "Accept";
             }
             else
             {
                 // User pressed Cancel, ESC, or the back arrow.
                 // Terms of use were not accepted.
-                AddServerButton.Content = "Accept";
+                Button.Content = "Accept";
             }
         }
 
@@ -52,16 +53,11 @@ namespace JavaIM_for_Windows
         {
             // Ensure that the check box is unchecked each time the dialog opens.
             //ConfirmAgeCheckBox.IsChecked = false;
-        }
 
-        private void ConfirmAgeCheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            AddServerContentDialog.IsPrimaryButtonEnabled = true;
         }
-
-        private void ConfirmAgeCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        private void inputBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            AddServerContentDialog.IsPrimaryButtonEnabled = false;
+            AddServerContentDialog.IsPrimaryButtonEnabled = !(string.IsNullOrEmpty(Name.Text) || string.IsNullOrEmpty(IP.Text) || string.IsNullOrEmpty(Port.Text));
         }
 
     }
