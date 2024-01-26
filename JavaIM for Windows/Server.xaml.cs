@@ -1,17 +1,8 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.Storage.Pickers;
+using Windows.Storage;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -45,21 +36,49 @@ namespace JavaIM_for_Windows
             {
                 // User pressed Cancel, ESC, or the back arrow.
                 // Terms of use were not accepted.
-                Button.Content = "Accept";
+                Button.Content = "Cancel";
             }
         }
 
         private void AddServerContentDialog_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
         {
-            // Ensure that the check box is unchecked each time the dialog opens.
-            //ConfirmAgeCheckBox.IsChecked = false;
-
+            Name.Text = null;
+            IP.Text = null;
+            Port.Text = "0";
+            Button.Content = "Import Key";
+            Button.Click += ImportkeyButton_Click;
+            this.InitializeComponent();
         }
         private void inputBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             AddServerContentDialog.IsPrimaryButtonEnabled = !(string.IsNullOrEmpty(Name.Text) || string.IsNullOrEmpty(IP.Text) || string.IsNullOrEmpty(Port.Text));
         }
 
+        private void Port_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
+        {
+            AddServerContentDialog.IsPrimaryButtonEnabled = !(string.IsNullOrEmpty(Name.Text) || string.IsNullOrEmpty(IP.Text) || string.IsNullOrEmpty(Port.Text));
+        }
+
+        private async void ImportkeyButton_Click(object sender, RoutedEventArgs e)
+        {
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            openPicker.FileTypeFilter.Add(".jpg");
+            openPicker.FileTypeFilter.Add(".jpeg");
+            openPicker.FileTypeFilter.Add(".png");
+            StorageFile file = await openPicker.PickSingleFileAsync();
+            if (file != null)
+            {
+                // Application now has read/write access to the picked file
+                //OutputTextBlock.Text = "Picked photo: " + file.Name;
+            }
+            else
+            {
+                //OutputTextBlock.Text = "Operation cancelled.";
+            }
+
+        }
     }
 
 }
