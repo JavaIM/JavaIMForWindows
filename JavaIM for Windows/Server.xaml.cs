@@ -23,7 +23,6 @@ namespace JavaIM_for_Windows
             this.InitializeComponent();
         }
 
-
         private async void AddServerButton_Click(object sender, RoutedEventArgs e)
         {
             ContentDialogResult result = await AddServerContentDialog.ShowAsync();
@@ -45,8 +44,8 @@ namespace JavaIM_for_Windows
             Name.Text = null;
             IP.Text = null;
             Port.Text = "0";
-            Button.Content = "Import Key";
-            Button.Click += ImportkeyButton_Click;
+            //Button.Content = "Import Key";
+            //Button.Click += ImportkeyButton_Click;
             this.InitializeComponent();
         }
         private void inputBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -58,10 +57,12 @@ namespace JavaIM_for_Windows
         {
             AddServerContentDialog.IsPrimaryButtonEnabled = !(string.IsNullOrEmpty(Name.Text) || string.IsNullOrEmpty(IP.Text) || string.IsNullOrEmpty(Port.Text));
         }
-
+        /**
         private async void ImportkeyButton_Click(object sender, RoutedEventArgs e)
         {
             FileOpenPicker openPicker = new FileOpenPicker();
+            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
+            WinRT.Interop.InitializeWithWindow.Initialize(openPicker, hWnd);
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
             openPicker.FileTypeFilter.Add(".jpg");
@@ -77,8 +78,8 @@ namespace JavaIM_for_Windows
             {
                 //OutputTextBlock.Text = "Operation cancelled.";
             }
-
         }
+        **/
     }
 
 }
