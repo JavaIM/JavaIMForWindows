@@ -11,8 +11,8 @@
 
     <NavigationView  SelectionChanged="NavigationView_SelectionChanged" PaneDisplayMode="Auto" PaneTitle="JavaIM" >
         <NavigationView.MenuItems>
-            <NavigationViewItem Icon="Library" Content="Server" Tag="Server"/>
-            <NavigationViewItem Icon="Message" Content="Messages" Tag="Chat"/>
+            <NavigationViewItem Icon="Library" Content="服务器" Tag="Server"/>
+            <NavigationViewItem Icon="Message" Content="聊天" Tag="Chat"/>
         </NavigationView.MenuItems>
         <Frame x:Name="contentFrame"/>
     </NavigationView>
